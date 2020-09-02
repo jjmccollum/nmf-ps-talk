@@ -259,48 +259,7 @@
 	\end{frame}
 	\begin{frame}{Non-negative Matrix Factorization}
 		\begin{itemize}
-			\item Reconstruct the original data...
-			\begin{center}
-				\begin{tikzpicture}
-					%Readings-MSS graph:
-					%Readings:
-					\path
-						(0.0, 2) node[shape=circle, fill=blue!60, scale=1.0 ](rm_r1) {}
-						(0.6666, 2) node[shape=circle, fill=blue!60, scale=1.0 ](rm_r2) {}
-						(1.3333, 2) node[shape=circle, fill=blue!60, scale=1.0 ](rm_r3) {}
-						(2.0, 2) node[shape=circle, fill=blue!60, scale=1.0 ](rm_r4) {}
-						(2.6666, 2) node[shape=circle, fill=blue!60, scale=1.0 ](rm_r5) {}
-						(3.3333, 2) node[shape=circle, fill=blue!60, scale=1.0 ](rm_r6) {}
-						(4.0, 2) node[shape=circle, fill=blue!60, scale=1.0 ](rm_r7) {};
-					%MSS:
-					\path
-						(0.0, 0) node[shape=circle, fill=red!60, scale=1.0 ](rm_m1) {}
-						(1.3333, 0) node[shape=circle, fill=red!60, scale=1.0 ](rm_m2) {}
-						(2.6666, 0) node[shape=circle, fill=red!60, scale=1.0 ](rm_m3) {}
-						(4.0, 0) node[shape=circle, fill=red!60, scale=1.0 ](rm_m4) {};
-					%Edges:
-					\draw[line width=0.1cm, color=black!30]
-						(rm_r1) -- (rm_m1)
-						(rm_r1) -- (rm_m2)
-						(rm_r2) -- (rm_m3)
-						(rm_r2) -- (rm_m4)
-						(rm_r3) -- (rm_m1)
-						(rm_r3) -- (rm_m3)
-						(rm_r4) -- (rm_m2)
-						(rm_r5) -- (rm_m4)
-						(rm_r6) -- (rm_m1)
-						(rm_r6) -- (rm_m2)
-						(rm_r6) -- (rm_m3)
-						(rm_r7) -- (rm_m4);
-					%Labels:
-					\draw 
-						(6.0, 2) node[text width=1in, align=left] (rtm_rl) {\footnotesize $m$ Readings}
-						(6.0, 0) node[text width=1in, align=left] (rtm_ml) {\footnotesize $n$ Manuscripts};
-					\draw [decorate,decoration={brace,amplitude=10pt},xshift=-0.5cm,yshift=0pt]
-						(0.0,0.0) -- (0.0,2.0) node [midway,xshift=-0.75cm] {\footnotesize $\mathbf{A}$};
-				\end{tikzpicture}
-			\end{center}
-			...in terms of a few components
+			\item Use two sets of relationships with a few components...
 			\begin{center}
 				\begin{tikzpicture}
 				%Readings-Texttypes-MSS graph:
@@ -352,7 +311,47 @@
 						(0.0,0.0) -- (0.0,1.0) node [midway,xshift=-0.75cm] {\footnotesize $\mathbf{H}$};
 				\end{tikzpicture}
 			\end{center}
-			\item A ``sum of parts'' model that is robust to mixture
+			...to reconstruct the large set of original relationships
+			\begin{center}
+				\begin{tikzpicture}
+					%Readings-MSS graph:
+					%Readings:
+					\path
+						(0.0, 2) node[shape=circle, fill=blue!60, scale=1.0 ](rm_r1) {}
+						(0.6666, 2) node[shape=circle, fill=blue!60, scale=1.0 ](rm_r2) {}
+						(1.3333, 2) node[shape=circle, fill=blue!60, scale=1.0 ](rm_r3) {}
+						(2.0, 2) node[shape=circle, fill=blue!60, scale=1.0 ](rm_r4) {}
+						(2.6666, 2) node[shape=circle, fill=blue!60, scale=1.0 ](rm_r5) {}
+						(3.3333, 2) node[shape=circle, fill=blue!60, scale=1.0 ](rm_r6) {}
+						(4.0, 2) node[shape=circle, fill=blue!60, scale=1.0 ](rm_r7) {};
+					%MSS:
+					\path
+						(0.0, 0) node[shape=circle, fill=red!60, scale=1.0 ](rm_m1) {}
+						(1.3333, 0) node[shape=circle, fill=red!60, scale=1.0 ](rm_m2) {}
+						(2.6666, 0) node[shape=circle, fill=red!60, scale=1.0 ](rm_m3) {}
+						(4.0, 0) node[shape=circle, fill=red!60, scale=1.0 ](rm_m4) {};
+					%Edges:
+					\draw[line width=0.1cm, color=black!30]
+						(rm_r1) -- (rm_m1)
+						(rm_r1) -- (rm_m2)
+						(rm_r2) -- (rm_m3)
+						(rm_r2) -- (rm_m4)
+						(rm_r3) -- (rm_m1)
+						(rm_r3) -- (rm_m3)
+						(rm_r4) -- (rm_m2)
+						(rm_r5) -- (rm_m4)
+						(rm_r6) -- (rm_m1)
+						(rm_r6) -- (rm_m2)
+						(rm_r6) -- (rm_m3)
+						(rm_r7) -- (rm_m4);
+					%Labels:
+					\draw 
+						(6.0, 2) node[text width=1in, align=left] (rtm_rl) {\footnotesize $m$ Readings}
+						(6.0, 0) node[text width=1in, align=left] (rtm_ml) {\footnotesize $n$ Manuscripts};
+					\draw [decorate,decoration={brace,amplitude=10pt},xshift=-0.5cm,yshift=0pt]
+						(0.0,0.0) -- (0.0,2.0) node [midway,xshift=-0.75cm] {\footnotesize $\mathbf{A}$};
+				\end{tikzpicture}
+			\end{center}
 		\end{itemize}
 	\end{frame}
 	\begin{frame}{Non-negative Matrix Factorization}
