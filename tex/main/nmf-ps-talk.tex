@@ -7,7 +7,7 @@
 \begin{document}
 	\begin{frame}
 		\titlepage
-		\phantom{\cite{Swanson.Luke}\cite{Lin16}\cite{CT69}\cite{Colwell69}\cite{Epp12}\cite{Wisse82}\cite{GS00}\cite{Wasserman06}\cite{McCollum19}\cite{BTGM04}\cite{Geer94}\cite{Zuntz53},\cite{Colwell32}\cite{Amphoux81}\cite{SWH02}\cite{Morrill12}\cite{Jones72}\cite{Lake02}\cite{LL41}\cite{Geerlings.Matthew}\cite{Geerlings.Luke}\cite{Geerlings.John}}
+		\phantom{\cite{Swanson.Luke}\cite{CT69}\cite{Colwell69}\cite{Epp12}\cite{Wisse82}\cite{GS00}\cite{Wasserman06}\cite{McCollum19}\cite{BTGM04}\cite{Geer94}\cite{Zuntz53},\cite{Colwell32}\cite{Amphoux81}\cite{SWH02}\cite{Morrill12}\cite{Jones72}\cite{Lake02}\cite{LL41}\cite{Geerlings.Matthew}\cite{Geerlings.Luke}\cite{Geerlings.John}}%\cite{Lin16}
 	\end{frame}
 	\begin{frame}{How Do We Compare Manuscripts?}
 		\begin{itemize}
@@ -27,21 +27,21 @@
 		\end{center}
 		\phantom{\footnotesize\parencite[Source:][183]{Swanson.Luke}}
 	\end{frame}
-	\begin{frame}{How Do We Compare Manuscripts?}
-		\begin{itemize}
-			\item Comparable to DNA sequence alignment\footnote{For the fascinating history of this relationship, see \cite{Lin16}.}
-			\begin{itemize}
-				\item manuscripts $\longleftrightarrow$ taxa / species
-				\item variation units $\longleftrightarrow$ sites
-				\item variant readings $\longleftrightarrow$ bases (A, C, G, T) and gaps (–)
-			\end{itemize}
-		\end{itemize}
-		\begin{center}
-			\includegraphics[width=\textwidth]{../graphics/sequence_alignment.jpg}
-			
-			\footnotesize(Source: \url{http://www.sequence-alignment.com})
-		\end{center}	
-	\end{frame}
+%	\begin{frame}{How Do We Compare Manuscripts?}
+%		\begin{itemize}
+%			\item Comparable to DNA sequence alignment\footnote{For the fascinating history of this relationship, see \cite{Lin16}.}
+%			\begin{itemize}
+%				\item manuscripts $\longleftrightarrow$ taxa / species
+%				\item variation units $\longleftrightarrow$ sites
+%				\item variant readings $\longleftrightarrow$ bases (A, C, G, T) and gaps (–)
+%			\end{itemize}
+%		\end{itemize}
+%		\begin{center}
+%			\includegraphics[width=\textwidth]{../graphics/sequence_alignment.jpg}
+%			
+%			\footnotesize(Source: \url{http://www.sequence-alignment.com})
+%		\end{center}	
+%	\end{frame}
 	\begin{frame}{How Do We Compare Manuscripts?}
 		\begin{itemize}
 			\item This provides a simple basis of comparison between pairs of manuscripts
@@ -561,32 +561,55 @@
 		\end{itemize}
 		\begin{center}
 			\begin{tikzpicture}
-				%Nodes
-				\path
-					(-1.0, 1) node[shape=circle](ms_1) {1}
-					(0.0, 0) node[shape=circle](ms_2) {2}
-					(2.0, 0) node[shape=circle](ms_3) {3};
-				%Edges
-				\draw[draw]
-					(0,2) -- (ms_1)
-					(0,2) -- (1,1)
-					(1,1) -- (ms_2)
-					(1,1) -- (ms_3);
-				%Edge markings
-				\draw[draw,decoration={markings, mark=at position .5  with {\node[transform shape] {|};}}] 
-				(0,2) edge[decorate] (ms_1);
+				%Nodes, mixture scenario
+				\node[cloud, cloud puffs=15, cloud ignores aspect, minimum width=2cm, minimum height=1cm, align=center,fill=white, draw, very thick] (alex_1)  at (0, 1.5) {\footnotesize Alexandrian};
+				\node[cloud, cloud puffs=13, cloud ignores aspect, minimum width=2cm, minimum height=1cm, align=center,fill=white, draw, very thick] (egypt_1)  at (3, 1.5) {\footnotesize Egyptian};
+				\node[align=center] (b_1)  at (1.5, 0) {\footnotesize 03};
+				%Arrows, mixture scenario
+				\draw[->, >=latex, very thick] (alex_1) -- (b_1);
+				\draw[->, >=latex, very thick] (egypt_1) -- (b_1);
+				%Nodes, mixture scenario
+				\node[cloud, cloud puffs=15, cloud ignores aspect, minimum width=2cm, minimum height=1cm, align=center,fill=white, draw, very thick] (alex_2)  at (5, 0) {\footnotesize Alexandrian};
+				\node[cloud, cloud puffs=13, cloud ignores aspect, minimum width=2cm, minimum height=1cm, align=center,fill=white, draw, very thick] (egypt_2)  at (8, 0) {\footnotesize Egyptian};
+				\node[align=center] (b_2)  at (6.5, 1.5) {\footnotesize 03};
+				%Arrows, mixture scenario
+				\draw[->, >=latex, very thick] (b_2) -- (alex_2);
+				\draw[->, >=latex, very thick] (b_2) -- (egypt_2);
+				%Arrow markings, mixture scenario
+				\draw[draw,decoration={markings, mark=at position .5  with {\node[transform shape] {||};}}] 
+				(b_2) edge[decorate] (alex_2);
 				\draw[draw,decoration={markings, mark=at position .5  with {\node[transform shape] {|||};}}] 
-				(0,2) edge[decorate] (1,1);
-				\draw[draw,decoration={markings, mark=at position .5  with {\node[transform shape] {};}}] 
-				(1,1) edge[decorate] (ms_2);
-				\draw[draw,decoration={markings, mark=at position .5  with {\node[transform shape] {|};}}] 
-				(1,1) edge[decorate] (ms_3);
-				%Cluster cloud
-				\node[cloud, cloud puffs=13, cloud ignores aspect, minimum width=3cm, minimum height=2cm, align=center,fill=white, draw, very thick] (cluster)  at (6, 1) {{\large\bf 2}\hspace{0.5cm}{\normalsize\bf 3}\hspace{0.5cm}{\small 1}};
-				%Arrow
-				\draw[->, >=latex, line width=0.25cm] (2.5,1) -- (4,1);
+				(b_2) edge[decorate] (egypt_2);
 			\end{tikzpicture}
 		\end{center}
+%		\begin{center}
+%			\begin{tikzpicture}
+%				%Nodes
+%				\path
+%					(-1.0, 1) node[shape=circle](ms_1) {1}
+%					(0.0, 0) node[shape=circle](ms_2) {2}
+%					(2.0, 0) node[shape=circle](ms_3) {3};
+%				%Edges
+%				\draw[draw]
+%					(0,2) -- (ms_1)
+%					(0,2) -- (1,1)
+%					(1,1) -- (ms_2)
+%					(1,1) -- (ms_3);
+%				%Edge markings
+%				\draw[draw,decoration={markings, mark=at position .5  with {\node[transform shape] {|};}}] 
+%				(0,2) edge[decorate] (ms_1);
+%				\draw[draw,decoration={markings, mark=at position .5  with {\node[transform shape] {|||};}}] 
+%				(0,2) edge[decorate] (1,1);
+%				\draw[draw,decoration={markings, mark=at position .5  with {\node[transform shape] {};}}] 
+%				(1,1) edge[decorate] (ms_2);
+%				\draw[draw,decoration={markings, mark=at position .5  with {\node[transform shape] {|};}}] 
+%				(1,1) edge[decorate] (ms_3);
+%				%Cluster cloud
+%				\node[cloud, cloud puffs=13, cloud ignores aspect, minimum width=3cm, minimum height=2cm, align=center,fill=white, draw, very thick] (cluster)  at (6, 1) {{\large\bf 2}\hspace{0.5cm}{\normalsize\bf 3}\hspace{0.5cm}{\small 1}};
+%				%Arrow
+%				\draw[->, >=latex, line width=0.25cm] (2.5,1) -- (4,1);
+%			\end{tikzpicture}
+%		\end{center}
 	\end{frame}
 	\begin{frame}{Concluding Observations}
 		\begin{itemize}
