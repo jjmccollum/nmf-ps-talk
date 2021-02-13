@@ -3,7 +3,7 @@ Resources and Beamer presentation for 2020 Phoenix Seminary talk on non-negative
 
 [![CC BY 4.0][cc-by-shield]][cc-by]
 
-## About this Project
+## About This Project
 
 This work is licensed under a
 [Creative Commons Attribution 4.0 International License][cc-by].
@@ -14,6 +14,6 @@ This work is licensed under a
 [cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
 [cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
 
-## Citing this Resource
+## Citing This Resource
 
 This resource can be cited with the DOI 10.17613/j6mv-am52.
